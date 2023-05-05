@@ -144,6 +144,11 @@ refresh_btn.config(bg="gray", fg="black")
 footer_label = ttk.Label(root, text=statue, font=("Helvetica", 10), foreground="#d6d6d6", background="#1c1c1c")
 footer_label.pack(side="bottom", pady=(0,10))
 
-root.after(43200000, update_prayer_times)
 
+try:
+    update_prayer_times()
+except:
+    print("error in updating")
+
+root.after(43200000, update_prayer_times)
 root.mainloop()
